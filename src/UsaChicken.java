@@ -1,16 +1,16 @@
-public class germanChicken extends Chicken {
+public class UsaChicken extends Chicken {
     @Override
     public int chickenMoneyPrice() {
-        return 50;
+        return 80;
     }
 
     @Override
     public int chickenEggPrice() {
-        return 7;
+        return 8;
     }
 
     @Override
     public int chickenEggProfit() {
-        return 4;
+        return 7;
     }
 }

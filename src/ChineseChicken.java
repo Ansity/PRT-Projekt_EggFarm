@@ -1,6 +1,6 @@
-public class chineseChicken extends Chicken {
+public class ChineseChicken extends Chicken {
 
-    public chineseChicken() {
+    public ChineseChicken() {
 
     }
 

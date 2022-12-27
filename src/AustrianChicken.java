@@ -1,5 +1,5 @@
-public class austrianChicken extends Chicken {
-    public austrianChicken() {
+public class AustrianChicken extends Chicken {
+    public AustrianChicken() {
 
     }
 

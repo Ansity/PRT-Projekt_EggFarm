@@ -4,8 +4,8 @@ public abstract class Chicken {
     private int chickenEggPrice;
     private int chickenEggProfit;
 
-    int chickenCounterStarter=1;
-    private int chickenCounter;
+    static int chickenCounterStarter=1;
+    private final int chickenCounter;
     double chickenLife;
 
     public void setChickenLife(double chickenLife) {
@@ -14,9 +14,10 @@ public abstract class Chicken {
 
     public Chicken() {
         chickenCounter = chickenCounterStarter;
-        chickenCounter++;
+        chickenCounterStarter++;
         chickenLife=100;
         chickenPensionCost = 100;
+        this.chickenEggProfit = chickenEggProfit();
     }
 
     public abstract int chickenMoneyPrice();
@@ -38,6 +39,10 @@ public abstract class Chicken {
         System.out.println("Legekapazität: " + chickenEggProfit);
         System.out.println("Gesundheitszustand: " + chickenLife);
         System.out.println("----------------------");
+    }
+
+    public void setChickenEggProfit(int chickenEggProfit) {
+        this.chickenEggProfit = chickenEggProfit;
     }
 
 //    public int reducedChickenLife80HP() {

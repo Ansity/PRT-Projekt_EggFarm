@@ -16,7 +16,7 @@ public class Henhouse {
         bank.pay(chickenMoneyPrice);
     }
 
-    public void payEgg(int chickenEggPrice) throws MissingEggsException{
+    public void payEgg(int chickenEggPrice) throws InsufficientEggException{
         eggShelter.pay(chickenEggPrice);
     }
 
@@ -42,11 +42,16 @@ public class Henhouse {
                 System.out.println("Ein Huhn ist in Pension gegangen! Du musst " + chicken.chickenPensionCost + " Bezahlen!");
             }
             else if(chicken.chickenLife <= 50){
-                chicken.setChickenLife(chicken.chickenLife - 3);
+                chicken.setChickenEggProfit(chicken.chickenEggProfit() - 3);
+                //chicken.chickenEggProfit() = chicken.chickenEggProfit() - 3;
+                //TODO EggProfitÄnderung wird nicht übertragen
+               //chicken.setChickenLife();
             }
             else if (chicken.chickenLife <= 80){
-                System.out.println("");
+                chicken.setChickenEggProfit(chicken.chickenEggProfit() - 1);
             }
+
+            chicken.chickenLife = chicken.chickenLife - 5;
         }
         for (Chicken chicken : chickenDeadList){
             chickenArrayList.remove(chicken);
@@ -77,7 +82,13 @@ public class Henhouse {
     }
 
     public void sellAllEggs() {
-     // TODO Verkauf initiieren
+        if (eggShelter.eggs >=1){
+           bank.money = bank.money + eggShelter.eggs * 2;
+           eggShelter.eggs = 0;
+        }
+        else {
+            System.out.println("Es sind keine Eier zum Verkauf verfügbar!");
+        }
     }
 
 
@@ -103,7 +114,7 @@ public class Henhouse {
             if (chickenNumberInput == chicken.getChickenNumber()){
                 try {
                     payEgg(4);
-                } catch (MissingEggsException e) {
+                } catch (InsufficientEggException e) {
                     throw new RuntimeException(e);
                 }
                 try {
@@ -112,6 +123,9 @@ public class Henhouse {
                     throw new RuntimeException(e);
                 }
                 chicken.setChickenLife(80);
+            }
+            else{
+                System.out.println("HühnerID nicht gefunden!");
             }
         }
     }
