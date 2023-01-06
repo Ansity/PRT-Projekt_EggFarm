@@ -1,7 +1,11 @@
 public class EggShelter {
 
-    double eggs = 20;
+    private int eggs = 20;
     int eggPrice = 2;
+
+    public void setEggs(int eggs) {
+        this.eggs = eggs;
+    }
 
     public void pay(int chickenEggPrice) {
         if (eggs >= chickenEggPrice){
@@ -21,4 +25,7 @@ public class EggShelter {
     }
 
 
+    public int getEggs() {
+        return eggs;
+    }
 }

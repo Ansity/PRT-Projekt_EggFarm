@@ -1,16 +1,11 @@
 public class UsaChicken extends Chicken {
-    @Override
-    public int chickenMoneyPrice() {
-        return 80;
+
+    public UsaChicken() {
+        this.chickenLife = 100;
+        this.chickenEggPrice = 8;
+        this.chickenEggProfit = 7;
+        this.chickenMoneyPrice = 80;
+        this.chickenTag = generateRandomChickenTag("USA");
     }
 
-    @Override
-    public int chickenEggPrice() {
-        return 8;
-    }
-
-    @Override
-    public int chickenEggProfit() {
-        return 7;
-    }
 }

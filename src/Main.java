@@ -9,10 +9,7 @@ public class Main {
         boolean endProgram = false;
         while (!endProgram) {
             try {
-
-                henhouse.dailyRun();
                 henhouse.chickenStatus();
-
 
                 System.out.println();
                 System.out.println();
@@ -36,9 +33,9 @@ public class Main {
                     }
                     case "C" -> {
                         Chicken chicken = new ChineseChicken();
-                        henhouse.payMoney(chicken.chickenMoneyPrice());
+                        henhouse.payMoney(chicken.getChickenMoneyPrice());
                         try {
-                            henhouse.payEgg(chicken.chickenEggPrice());
+                            henhouse.payEgg(chicken.getChickenEggPrice());
                         } catch (InsufficientEggException e) {
                             throw new RuntimeException(e);
                         }
@@ -46,9 +43,9 @@ public class Main {
                     }
                     case "O" -> {
                         Chicken chicken = new AustrianChicken();
-                        henhouse.payMoney(chicken.chickenMoneyPrice());
+                        henhouse.payMoney(chicken.getChickenMoneyPrice());
                         try {
-                            henhouse.payEgg(chicken.chickenEggPrice());
+                            henhouse.payEgg(chicken.getChickenEggPrice());
                         } catch (InsufficientEggException e) {
                             throw new RuntimeException(e);
                         }
@@ -56,9 +53,9 @@ public class Main {
                     }
                     case "D" -> {
                         Chicken chicken = new GermanChicken();
-                        henhouse.payMoney(chicken.chickenMoneyPrice());
+                        henhouse.payMoney(chicken.getChickenMoneyPrice());
                         try {
-                            henhouse.payEgg(chicken.chickenEggPrice());
+                            henhouse.payEgg(chicken.getChickenEggPrice());
                         } catch (InsufficientEggException e) {
                             throw new RuntimeException(e);
                         }
@@ -66,9 +63,9 @@ public class Main {
                     }
                     case "U" -> {
                         Chicken chicken = new UsaChicken();
-                        henhouse.payMoney(chicken.chickenMoneyPrice());
+                        henhouse.payMoney(chicken.getChickenMoneyPrice());
                         try {
-                            henhouse.payEgg(chicken.chickenEggPrice());
+                            henhouse.payEgg(chicken.getChickenEggPrice());
                         } catch (InsufficientEggException e) {
                             throw new RuntimeException(e);
                         }
@@ -97,6 +94,8 @@ public class Main {
                 System.out.println("SIE HABEN VERLOREN!!!");
                 System.out.println("Es sind keine Eier da, um ein Huhn zu erzeugen und kein Huhn im Stall, welches Eier legt!");
             }
+
+            henhouse.dailyRun();
         }
     }
 }

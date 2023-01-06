@@ -1,20 +1,10 @@
 public class AustrianChicken extends Chicken {
     public AustrianChicken() {
-
+        this.chickenLife = 100;
+        this.chickenEggPrice = 4;
+        this.chickenEggProfit = 8;
+        this.chickenMoneyPrice = 150;
+        this.chickenTag = generateRandomChickenTag("Austria");
     }
 
-    @Override
-    public int chickenMoneyPrice() {
-        return 150;
-    }
-
-    @Override
-    public int chickenEggPrice() {
-        return 4;
-    }
-
-    @Override
-    public int chickenEggProfit() {
-        return 8;
-    }
 }

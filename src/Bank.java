@@ -1,10 +1,10 @@
 public class Bank {
     double money = 500;
+
     public void pay(int chickenMoneyPrice) throws BankruptcyException {
-        if (money >= chickenMoneyPrice){
+        if (money >= chickenMoneyPrice) {
             money = money - chickenMoneyPrice;
-        }
-        else{
+        } else {
             System.out.println("Nicht genügend Geld für den Kauf vorhanden");
             throw new BankruptcyException();
         }
