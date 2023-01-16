@@ -138,4 +138,8 @@ public class Henhouse {
             System.out.println("----------------------");
         }
     }
+
+    public Bank getBank() {
+        return bank;
+    }
 }
