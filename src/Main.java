@@ -5,8 +5,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Henhouse henhouse = new Henhouse();
+        int dayCounter = 1;
 
+        LeaderboardController leaderboardController = new LeaderboardController();
         boolean endProgram = false;
+        
+        initializeGame();
         while (!endProgram) {
             try {
                 henhouse.chickenStatus();
@@ -95,20 +99,40 @@ public class Main {
                         henhouse.sendChickenToDoctor(chickenNumberInput);
                     }
                     case "N" -> endProgram = false;
-                    case "E" -> endProgram = true;
+                    case "E" ->{
+                        endProgram = true
+                        leaderboardController.addNewScoreEntry(userName, henhouse.getBank().getMoney(), dayCounter);
+                        leaderboardController.showLeaderboard();
+                        
+                    }
                     default -> System.out.println("UngültigeAuswahl!");
                 }
             } catch (BankruptcyException e) {
                 System.out.println("SIE HABEN VERLOREN!!!");
                 System.out.println("In der Kassa ist kein Geld mehr!");
+                leaderboardController.addNewScoreEntry(userName, henhouse.getBank().getMoney(), dayCounter);
                 endProgram = true;
+                leaderboardController.showLeaderboard();
             } catch (MissingEggsException e) {
                 System.out.println("SIE HABEN VERLOREN!!!");
                 System.out.println("Es sind keine Eier da, um ein Huhn zu erzeugen und kein Huhn im Stall, welches Eier legt!");
+                leaderboardController.addNewScoreEntry(userName, henhouse.getBank().getMoney(), dayCounter);
                 endProgram = true;
+                leaderboardController.showLeaderboard();
             }
 
             henhouse.dailyRun();
+            dayCounter++;
+            
+
+    }
+
+    public static void initializeGame() {
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter your username");
+
+        userName = myObj.nextLine();
+        System.out.println("Your game will begin now " + userName + "\n");
         }
     }
 }
