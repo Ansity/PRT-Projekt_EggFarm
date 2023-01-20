@@ -5,7 +5,7 @@ public class UsaChicken extends Chicken {
         this.chickenEggPrice = 8;
         this.chickenEggProfit = 7;
         this.chickenMoneyPrice = 80;
-        this.chickenTag = generateRandomChickenTag("USA");
+        this.chickenTag = generateRandomChickenTag();
     }
 
 }

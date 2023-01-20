@@ -6,7 +6,7 @@ public abstract class Chicken {
     protected int chickenEggPrice;
     protected int chickenEggProfit;
 
-    protected String chickenTag;
+    protected Integer chickenTag;
 
     static int chickenCounterStarter = 1;
     //  private final int chickenCounter;
@@ -58,14 +58,14 @@ public abstract class Chicken {
         this.chickenLife = this.chickenLife - 5;
     }
 
-    protected String generateRandomChickenTag(String type) {
+    protected Integer generateRandomChickenTag() {
         Random random = new Random();
-        char c = (char) (random.nextInt(26) + 'a');
-        String result = type + random.nextFloat(5) + c;
-        return result;
+        int c;
+        c = random.nextInt(26);
+        return c;
     }
 
-    public String getChickenTag() {
+    public Integer getChickenTag() {
         return chickenTag;
     }
 
