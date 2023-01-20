@@ -1,4 +1,5 @@
 public class AustrianChicken extends Chicken {
+
     public AustrianChicken() {
         this.chickenLife = 100;
         this.chickenEggPrice = 4;
